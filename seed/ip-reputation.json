@@ -1,0 +1,11 @@
+{
+  "185.220.101.45": { "reputation": "malicious", "category": "Tor exit node", "score": 95 },
+  "103.75.190.12": { "reputation": "malicious", "category": "Known APT infrastructure", "score": 98 },
+  "45.155.205.233": { "reputation": "malicious", "category": "Bulletproof hosting, credential abuse", "score": 92 },
+  "91.240.118.172": { "reputation": "suspicious", "category": "VPS provider, past scanning", "score": 70 },
+  "198.51.100.23": { "reputation": "suspicious", "category": "Mass internet scanner", "score": 55 },
+  "203.0.113.66": { "reputation": "suspicious", "category": "Web attack source", "score": 65 },
+  "10.0.12.44": { "reputation": "internal", "category": "Internal network", "score": 0 },
+  "10.0.5.18": { "reputation": "internal", "category": "Internal network", "score": 0 },
+  "10.0.20.5": { "reputation": "internal", "category": "Internal backup network", "score": 0 }
+}

@@ -1,0 +1,14 @@
+{
+  "UnauthorizedAccess:EC2/SSHBruteForce": { "tactic": "Credential Access", "technique": "T1110", "name": "Brute Force", "playbook": "PB-01 Block source IP in NACL/WAF and review SSH exposure" },
+  "UnauthorizedAccess:IAMUser/ConsoleLoginSuccess.B": { "tactic": "Initial Access", "technique": "T1078.004", "name": "Valid Accounts: Cloud Accounts", "playbook": "PB-02 Disable user console access, rotate credentials, enforce MFA" },
+  "Policy:S3/BucketBlockPublicAccessDisabled": { "tactic": "Defense Evasion", "technique": "T1562", "name": "Impair Defenses", "playbook": "PB-03 Re-enable S3 Block Public Access and review bucket policy" },
+  "CryptoCurrency:EC2/BitcoinTool.B!DNS": { "tactic": "Impact", "technique": "T1496", "name": "Resource Hijacking", "playbook": "PB-04 Isolate instance with quarantine security group, snapshot for forensics" },
+  "Discovery:IAMUser/AnomalousBehavior": { "tactic": "Discovery", "technique": "T1087.004", "name": "Account Discovery: Cloud Account", "playbook": "PB-05 Deactivate access key and investigate CloudTrail" },
+  "Exfiltration:S3/AnomalousBehavior": { "tactic": "Exfiltration", "technique": "T1530", "name": "Data from Cloud Storage", "playbook": "PB-05 Deactivate access key, assess PDPA breach notification (72h)" },
+  "Stealth:IAMUser/CloudTrailLoggingDisabled": { "tactic": "Defense Evasion", "technique": "T1562.008", "name": "Impair Defenses: Disable Cloud Logs", "playbook": "PB-06 Re-enable CloudTrail, deactivate actor credentials" },
+  "Recon:EC2/PortProbeUnprotectedPort": { "tactic": "Reconnaissance", "technique": "T1595", "name": "Active Scanning", "playbook": "PB-07 Restrict security group ingress on database port" },
+  "UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration.OutsideAWS": { "tactic": "Credential Access", "technique": "T1552.005", "name": "Unsecured Credentials: Cloud Instance Metadata API", "playbook": "PB-08 Revoke role sessions, enforce IMDSv2, check for SSRF" },
+  "PrivilegeEscalation:IAMUser/AdministrativePermissions": { "tactic": "Privilege Escalation", "technique": "T1098", "name": "Account Manipulation", "playbook": "PB-09 Detach admin policy, disable user, review who approved" },
+  "Behavior:EC2/NetworkPortUnusual": { "tactic": "Command and Control", "technique": "T1571", "name": "Non-Standard Port", "playbook": "PB-10 Verify against change records; close as false positive if approved" },
+  "Impact:EC2/WebApplicationAttack": { "tactic": "Initial Access", "technique": "T1190", "name": "Exploit Public-Facing Application", "playbook": "PB-11 Enable WAF SQLi rules, review application logs" }
+}
