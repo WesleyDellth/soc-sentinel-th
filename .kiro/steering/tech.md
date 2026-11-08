@@ -9,6 +9,10 @@
   CDK BucketDeployment, served by CloudFront. Use Cognito Hosted UI for login.
 - Static reference data in `seed/`: findings.json, mitre-mapping.json, ip-reputation.json.
   Bundle them into the agent Lambda.
+- Exactly 5 Lambda functions. GET /incidents and GET /incidents/{id} are served by the
+  ingest function (route on httpMethod and path).
+- One deploy only: pass the API URL and Cognito settings to the frontend as config.json
+  through BucketDeployment (Source.jsonData). No post-deploy scripts, no second deploy.
 - Keep it simple: no frameworks that need a build step, no containers, no VPC.
 - Every command must work from the Kiro browser terminal: `npm ci`, `npx cdk synth`,
   `npx cdk deploy --require-approval never`.

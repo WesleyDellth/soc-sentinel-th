@@ -6,12 +6,14 @@ organizers conflicts with this file, the competition rule wins — update this f
 ## Infrastructure as Code
 - All infrastructure in AWS CDK (TypeScript). No console-created resources.
 - Tag every resource: Project=SOCSentinel, Owner=<team-name>, DataClass=Confidential.
+  Copy the Owner value exactly from this line; never invent a placeholder such as "soc-team".
 - Region: use the region configured in the workshop account (prefer ap-southeast-7 Bangkok,
   fallback ap-southeast-1 Singapore). Never hardcode another region.
 
 ## Encryption
 - One customer-managed KMS key with key rotation enabled.
 - DynamoDB, S3, CloudWatch Logs and Lambda environment variables use that KMS key.
+  Every Lambda function must set `environmentEncryption: key` (easy to forget, checked by the checker).
 - S3 buckets: enforceSSL true, Block Public Access ALL, versioning on.
 - HTTPS only everywhere. CloudFront viewer protocol = redirect-to-https, TLS 1.2+.
 
@@ -20,6 +22,8 @@ organizers conflicts with this file, the competition rule wins — update this f
 - API Gateway: Cognito authorizer on EVERY route (no anonymous routes).
 - One IAM role per Lambda function, least privilege. Never use "*" for Action or Resource
   unless AWS requires it — if so, add a code comment explaining why.
+- Bedrock permissions: scope Resource to the foundation-model and inference-profile ARNs
+  of MODEL_ID in this region, never "*".
 - No secrets, keys or passwords in code or in plain environment variables.
 
 ## Network and edge
